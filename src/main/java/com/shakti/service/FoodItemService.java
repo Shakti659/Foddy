@@ -22,7 +22,7 @@ public class FoodItemService {
         return savedItem.getId();
     }
 
-    List<FoodItem> getALLFoodItem() {
+   public List<FoodItem> getALLFoodItem() {
         return repository.findAll();
     }
 
@@ -35,7 +35,7 @@ public class FoodItemService {
 
         }    }
 
-    FoodItem getFoodItemById(UUID id) throws InvalidIdException {
+    public FoodItem getFoodItemById(UUID id) throws InvalidIdException {
 
         FoodItem foodItem = repository.findById(id)
                 .orElseThrow(() -> new InvalidIdException("Invalid Id " + id));
