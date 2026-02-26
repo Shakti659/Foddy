@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -15,7 +17,11 @@ public class FoodItem {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     UUID id;
+
+    @NotBlank(message="Food item name must not be empty.")
     String name;
+
+    @Positive(message = "Food item price must be positive.")
     Double price;
     LocalDate creatDate;
     LocalDate updateDate;
